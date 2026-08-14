@@ -12,7 +12,7 @@ uploaded_file = st.file_uploader("Upload Crop Image", type=["jpg", "png", "jpeg"
 if uploaded_file is not None:
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     frame = cv2.imdecode(file_bytes, 1)
-    st.image(frame, caption="Uploaded Image", use_column_width=True)
+    st.image(frame, caption="Uploaded Image", use_container_width=True)
 
     label, confidence, prevention_crop = predict_frame(frame)
     st.subheader("🌿 Crop Disease Result")
